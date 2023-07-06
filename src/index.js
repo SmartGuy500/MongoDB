@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
 import http from "http"; 
+import dotenv from "dotenv";
 import router from './routes'
 
 const app = express();
@@ -13,11 +14,11 @@ app.use(cors({
 app.use(express.json())
 
 const server = http.createServer(app)
-server.listen(8000, ()=>{
-    console.log('Server is running on http://localhost:8000')
+server.listen(5500, ()=>{
+    console.log('Server is running on http://localhost:5500')
 })
 
-const mongoUrl = 'mongodb+srv://AwesomeBeto:xSKoJMk0RSXPgm4b@cluster0.fhejqp8.mongodb.net/?retryWrites=true&w=majority'
+const mongoUrl = process.env.Mongo_URL 
 
 mongoose.connect(mongoUrl)
 .then(()=> {console.log('MongoDB connected')})
