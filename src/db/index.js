@@ -21,6 +21,10 @@ const updateBook = (id, values)=>{
     return book.findByIdAndUpdate(id, values)
 }
 
+const deleteBook = (id)=>{
+    return book.findByIdAndDelete(id)
+}
+
 export {
     book, 
     getBooks, 

@@ -3,7 +3,9 @@ import cors from "cors";
 import mongoose from "mongoose";
 import http from "http"; 
 import dotenv from "dotenv";
-import router from './routes'
+import router from './routes/index.js'
+
+dotenv.config()
 
 const app = express();
 
@@ -18,10 +20,15 @@ server.listen(5500, ()=>{
     console.log('Server is running on http://localhost:5500')
 })
 
-const mongoUrl = process.env.Mongo_URL 
+const mongoUrl = process.env.MONGO_URL 
 
 mongoose.connect(mongoUrl)
-.then(()=> {console.log('MongoDB connected')})
-.catch((err) => {console.log(err)})
+.then(()=> {
+    console.log('MongoDB connected')
+})
+.catch((err) => {
+    console.log(err)
+})
 
 app.use('/', router)
+

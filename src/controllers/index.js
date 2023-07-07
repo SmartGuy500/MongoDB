@@ -1,4 +1,4 @@
-import {getBooks, createBook, updateBook, deleteBook} from '..db/index.js'
+import {getBooks, createBook, updateBook, deleteBook} from '../db/index.js'
 
 const getAllBooks = async(req,res) =>{
     try{
